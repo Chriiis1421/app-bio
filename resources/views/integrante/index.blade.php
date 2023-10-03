@@ -15,6 +15,8 @@
                 <th scope="col" class="d-none d-md-table-cell">BIOGRAFIA</th>
                 <th scope="col">FOTO</th>
                 <th scope="col">AÇÕES</th>
+
+                <!-- Teste Git -->
             </tr>
             </thead>
             <tbody>
