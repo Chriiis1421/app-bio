@@ -1,4 +1,4 @@
-@extends('template.main', ['menu' => "admin", 'submenu' => "Atividades",  'rota'=>"atividade.create"])
+@extends('template.main', ['menu' => "admin", 'submenu' => "Eixos",  'rota'=>"eixo.create"])
 
 @section('titulo') Desenvolvimento Web @endsection
 
@@ -7,24 +7,21 @@
 <div class="row">
     <div class="col">
         <table class="table align-middle caption-top table-striped">
-            <caption>Tabela de <b>Atividades</b></caption>
+            <caption>Tabela de <b>Eixo</b></caption>
             <thead>
             <tr>
                 <th scope="col" class="d-none d-md-table-cell">ID</th>
                 <th scope="col">NOME</th>
-                <th scope="col" class="d-none d-md-table-cell">DESCRIÇÃO</th>
-                <th scope="col">DATA</th>
-                <th scope="col">FOTO</th>
                 <th scope="col">AÇÕES</th>
             </tr>
             </thead>
             <tbody>
-                @foreach ($data as $item)
+                @foreach ($nome as $item)
                     <tr>
                         <td d-none d-md-table-cell>{{ $item->id }}</td>
                         <td>{{ $item->nome }}</td>
                         <td class="d-none d-md-table-cell">{{ $item->descricao }}</td>
-                        <td>{{ $item->data }}</td>
+                        <td>{{ $item->nome }}</td>
                         <td>
                             <a nohref style="cursor:pointer" onclick="showFotoModal('{{ asset('storage/') }}', '{{ $item->foto }}')">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#198754" class="bi bi-camera" viewBox="0 0 16 16">
@@ -34,7 +31,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href= "{{ route('atividade.edit', $item->id) }}" class="btn btn-success">
+                            <a href= "{{ route('eixo.edit', $item->id) }}" class="btn btn-success">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFF" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
                                     <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
@@ -46,7 +43,7 @@
                                 </svg>
                             </a>
                         </td>
-                        <form action="{{ route('atividade.destroy', $item->id) }}" method="POST" id="form_{{$item->id}}">
+                        <form action="{{ route('eixo.destroy', $item->id) }}" method="POST" id="form_{{$item->id}}">
                             @csrf
                             @method('DELETE')
                         </form>

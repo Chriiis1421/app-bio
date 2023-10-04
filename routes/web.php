@@ -18,12 +18,7 @@ Route::get('/', function () {
 })->name('index');
 
 Route::resource('integrante', 'IntegranteController');
-Route::resource('atividade', 'AtividadeController');
+Route::resource('eixo', 'EixoController');
 Route::resource('material', 'MaterialController');
 
-Route::prefix('/site')->group(function() {
-    Route::get('/atividade', 'SiteController@getAtividades')->name('site.atividade');
-    Route::get('/integrante', 'SiteController@getIntegrantes')->name('site.integrante');
-    Route::get('/material', 'SiteController@getMateriais')->name('site.material');
-});
 
